@@ -1,0 +1,6 @@
+# Variables
+@baseUrl = http://localhost:3000/api
+@resource = categories
+
+### @name /
+GET {{baseUrl}}/{{resource}}

@@ -1,0 +1,5 @@
+# Variables
+@baseUrl = http://localhost:3000/api
+
+### @name /db
+GET {{baseUrl}}/db

@@ -1,0 +1,15 @@
+# Variables
+@baseUrl = http://localhost:3000/api
+@resource = products
+
+### @name getAll
+GET {{baseUrl}}/{{resource}}
+
+### @name filter
+GET {{baseUrl}}/{{resource}}?color=violet&price_gte=100
+
+### @name pagination
+GET {{baseUrl}}/{{resource}}?_page=1&_limit=3
+
+### @name sort
+GET {{baseUrl}}/{{resource}}?_sort=price&_order=asc
