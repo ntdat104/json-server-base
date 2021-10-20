@@ -3,14 +3,22 @@ const queryString = require('query-string');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
+const https = require('https');
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
 // Add custom routes before JSON Server router
-server.get('/echo', (req, res) => {
-  res.jsonp(req.query);
+server.get('/api/wakeup-heroku', (_, res) => {
+  res.jsonp({
+    status: 'ok',
+  });
 });
+
+const timer = 25 * 60 * 1000; // 25 minutes
+setInterval(() => {
+  https.get('https://ntdat-json-server.herokuapp.com/api/wakeup-heroku');
+}, timer);
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
